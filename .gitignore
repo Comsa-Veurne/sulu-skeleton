@@ -49,3 +49,6 @@ node_modules
 
 # System files
 .DS_Store
+
+# Build files
+/public/build/website
