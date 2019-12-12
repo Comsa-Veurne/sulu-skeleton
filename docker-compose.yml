@@ -1,0 +1,13 @@
+version: '3.1'
+services:
+  db:
+    image: mysql:5.6
+    ports:
+      - "3306:3306"
+    environment:
+      MYSQL_DATABASE: sulu
+      MYSQL_ROOT_PASSWORD: sulu
+    volumes:
+      - my-db:/var/lib/mysql
+volumes:
+  my-db:
