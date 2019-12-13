@@ -18,9 +18,20 @@ clear_cache: #This is the default action
 image_cache:
 	$(DOCKER_APP_CONSOLE) sulu:media:format:cache:clear
 
-setup: install
+docker_setup:
+	$(DOCKER) container stop $(shell docker container ls -q)
+	$(DOCKER_COMPOSE) up -d
+
+setup: docker_setup install
+	printf "DATABASE_URL=mysql://root:sulu@db:3306/sulu\nAPP_ENV=dev" > .env.local
 	$(DOCKER_APP_CONSOLE) sulu:build dev
+	npm install --prefix assets/website
 
 enter:
 	$(DOCKER) exec -it $(DOCKER_APP_ID) bash
 
+clear_git:
+	rm -rf .git/* && git init && git add . && git commit -m "Initial commit"
+
+dev:
+	npm run dev --prefix assets/website
