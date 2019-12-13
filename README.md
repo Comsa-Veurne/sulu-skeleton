@@ -11,3 +11,4 @@
 ## Usage
 - Run your webpack dev server, using `make dev`
 - Now visit http://localhost and your website should be visible
+- Now visit http://localhost/admin and login with both username and password: **admin**
