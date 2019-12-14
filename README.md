@@ -12,3 +12,16 @@
 - Run your webpack dev server, using `make dev`
 - Now visit http://localhost and your website should be visible
 - Now visit http://localhost/admin and login with both username and password: **admin**
+## Easy commands
+
+| Command  | Description    |
+|---|---|
+| make install | Executes a `composer install` within your Docker container |
+| make update_database | Executes `bin/console doctrine:schema:update -f` inside your Docker container |
+| make clear_cache | Clears the cache |
+| make image_cache | Clears the image cache ( formats ) |
+| make docker_setup | Stops all other containers, and starts/build yours |
+| make setup | Sets up the DB connection in `env.local`, creates Sulu DB and builds your node packages |
+| make enter | Enters your Docker container with bash |
+| make clear_git repository=<your-repo-name> | Recreates your Git repository and adds a new remote with the given repository name |
+| make dev | Starts your webpack-dev-server |
