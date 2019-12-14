@@ -32,6 +32,7 @@ enter:
 
 clear_git:
 	rm -rf .git/* && git init && git add . && git commit -m "Initial commit"
+	git remote add origin ssh://git@lab.comsa.be:7685/Websites/$(repository).git
 
 dev:
 	npm run dev --prefix assets/website
