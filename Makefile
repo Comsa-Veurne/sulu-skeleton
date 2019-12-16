@@ -19,7 +19,7 @@ image_cache:
 	$(DOCKER_APP_CONSOLE) sulu:media:format:cache:clear
 
 docker_setup:
-	$(DOCKER) container stop $(shell docker container ls -q)
+	$(DOCKER) container stop $(shell docker container ls -aq)
 	$(DOCKER_COMPOSE) up -d
 
 setup: docker_setup install
