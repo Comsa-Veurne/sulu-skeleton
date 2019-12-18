@@ -5,7 +5,8 @@ services:
     ports:
       - "80:80"
     volumes:
-      - .:/var/www/html
+      - .:/var/www/html:cached
+      - vendor:/var/www/html/vendor
     depends_on:
       - db
   db:
@@ -19,3 +20,4 @@ services:
       - my-db:/var/lib/mysql
 volumes:
   my-db:
+  vendor:
