@@ -20,9 +20,33 @@
     {% endblock %}
 </head>
 <body>
-    <header>
+    <nav class="nav-mobile">
+        <svg class="nav-mobile-circle" height="50" width="50">
+            <circle cx="25" cy="25" r="20" />
+        </svg>
+        <ul>
+            <li>
+                <a href="{{ sulu_content_root_path() }}">Homepage</a>
+            </li>
+
+            {% for item in sulu_navigation_root_tree('main') %}
+                <li>
+                    <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
+                       title="{{ item.title }}">{{ item.title }}</a>
+                </li>
+            {% endfor %}
+        </ul>
+    </nav>
+    <header class="header">
         {% block header %}
-            <nav>
+            <div class="d-flex justify-content-end">
+                <button class="nav-mobile-toggle hamburger hamburger--spin" type="button">
+                  <span class="hamburger-box">
+                    <span class="hamburger-inner"></span>
+                  </span>
+                </button>
+            </div>
+            <nav class="nav-main">
                 <ul>
                     <li>
                         <a href="{{ sulu_content_root_path() }}">Homepage</a>
@@ -44,15 +68,9 @@
         <input type="submit" value="Go"/>
     </form>
 
-    <section id="content">
-        {% block content %}{% endblock %}
-    </section>
+    {% block content %}{% endblock %}
 
-    <aside>
-        {% block aside %}{% endblock %}
-    </aside>
-
-    <footer>
+    <footer class="footer">
         {% block footer %}
             <p>Copyright {{ 'now'|date('Y') }} SULU</p>
         {% endblock %}
