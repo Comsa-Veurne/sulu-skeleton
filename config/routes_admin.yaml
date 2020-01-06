@@ -1,1 +1,5 @@
 # Define your admin routes here
+sulu_form_api:
+  type: rest
+  resource: "@SuluFormBundle/Resources/config/routing_api.yml"
+  prefix: /admin/api
