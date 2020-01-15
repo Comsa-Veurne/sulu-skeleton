@@ -1,0 +1,11 @@
+image: ciryk/ci:7.3-apache
+stages:
+  - style
+
+stylelint:
+  stage: style
+  before_script:
+    - cd assets/website
+  script:
+    - cat package.json
+    - npm run stylelint
