@@ -7,5 +7,11 @@ stylelint:
   before_script:
     - cd assets/website
   script:
-    - cat package.json
     - npm run stylelint
+
+eslint:
+  stage: style
+  before_script:
+    - cd assets/website
+  script:
+    - npm run eslint
