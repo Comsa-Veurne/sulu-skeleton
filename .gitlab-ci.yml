@@ -1,6 +1,8 @@
 image: ciryk/ci:7.3-apache
 stages:
   - style
+  - staging
+  - deploy
 
 stylelint:
   stage: style

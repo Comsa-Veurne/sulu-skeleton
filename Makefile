@@ -31,7 +31,7 @@ enter:
 	$(DOCKER) exec -it $(DOCKER_APP_ID) bash
 
 clear_git:
-	rm -rf .git/* && git init && git add . && git commit -m "Initial commit"
+	rm -rf .git/* && git init && git add . && git commit -m "Initial commit" && git checkout -b development
 	git remote add origin ssh://git@lab.comsa.be:7685/Websites/$(repository).git
 
 dev:
