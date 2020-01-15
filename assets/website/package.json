@@ -3,7 +3,8 @@
   "scripts": {
     "build": "webpack --production",
     "dev": "webpack-dev-server --development",
-    "stylelint": "stylelint \"src/scss/**/*.scss\""
+    "stylelint": "stylelint \"src/scss/**/*.scss\"",
+    "eslint": "eslint \"src/**/*.js\""
   },
   "license": "ISC",
   "dependencies": {
