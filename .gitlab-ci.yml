@@ -17,3 +17,10 @@ eslint:
     - cd assets/website
   script:
     - npm run eslint
+
+twig:
+  stage: style
+  before_script:
+    - composer install
+  script:
+    - php bin/websiteconsole lint:twig templates
