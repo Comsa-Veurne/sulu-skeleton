@@ -1,0 +1,26 @@
+{% if blocks|length %}
+    <div class="row">
+        {% for block in blocks %}
+            <div class="{{ block.width|default('full')|width }}">
+                {% if block.type == 'button' %}
+                    {% set target = sulu_content_load(block.link) %}
+                    <div class="text-{{ block.position }}">
+                        <a href="{{ target.path }}" class="btn btn-{{ block.style }} btn-{{ block.size|size }}">{{ block.label }}</a>
+                    </div>
+                {% elseif block.type == 'text' %}
+                    {{ block.text|raw }}
+                {% elseif block.type == 'divider' %}
+                    <hr class="{{ block.margin|default('normal')|margin }}{% if not block.horizontal_rule %} no-rule{% endif %}">
+                {% elseif block.type == 'images' %}
+                    <div class="row">
+                        {% for image in block.images %}
+                            <div class="{{ block.columns|columns }}">
+                                <img src="{{ image.url }}" alt="{{ image.name }}">
+                            </div>
+                        {% endfor %}
+                    </div>
+                {% endif %}
+            </div>
+        {% endfor %}
+    </div>
+{% endif %}

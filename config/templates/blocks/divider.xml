@@ -1,0 +1,50 @@
+<?xml version="1.0" ?>
+<type name="divider" xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <meta>
+        <title lang="en">Divider</title>
+        <title lang="nl">Verdeler</title>
+    </meta>
+    <properties>
+        <property name="margin" type="single_select" colspan="6" mandatory="true">
+            <meta>
+                <title lang="en">Margin</title>
+                <title lang="nl">Marge</title>
+            </meta>
+            <params>
+                <param name="default_value" value="normal"/>
+                <param name="values" type="collection">
+                    <param name="small">
+                        <meta>
+                            <title lang="en">Small</title>
+                            <title lang="nl">Klein</title>
+                        </meta>
+                    </param>
+                    <param name="normal">
+                        <meta>
+                            <title lang="en">Normal</title>
+                            <title lang="nl">Normaal</title>
+                        </meta>
+                    </param>
+                    <param name="large">
+                        <meta>
+                            <title lang="en">Large</title>
+                            <title lang="nl">Groot</title>
+                        </meta>
+                    </param>
+                </param>
+            </params>
+        </property>
+        <property name="horizontal_rule" type="checkbox" colspan="6">
+            <meta>
+                <title lang="en">Horizontal rule</title>
+                <title lang="nl">Horizontale regel</title>
+            </meta>
+            <params>
+                <param name="type" value="toggler"/>
+                <param name="default_value" value="true"/>
+            </params>
+        </property>
+    </properties>
+</type>

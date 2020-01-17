@@ -1,6 +1,9 @@
 @import 'variables';
 @import 'vendors';
 
+//-- Base
+@import './base';
+
 //-- Import components
 @import 'components/nav/mobile';
 @import 'components/form';

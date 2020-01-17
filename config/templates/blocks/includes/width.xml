@@ -1,0 +1,26 @@
+<?xml version="1.0" ?>
+<property name="width" type="single_select" xmlns="http://schemas.sulu.io/template/template" mandatory="true"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <meta>
+        <title lang="en">Width</title>
+        <title lang="nl">Breedte</title>
+    </meta>
+    <params>
+        <param name="default_value" value="full"/>
+        <param name="values" type="collection">
+            <param name="full">
+                <meta>
+                    <title lang="en">Full</title>
+                    <title lang="nl">Volledig</title>
+                </meta>
+            </param>
+            <param name="half">
+                <meta>
+                    <title lang="en">Half</title>
+                    <title lang="nl">Half</title>
+                </meta>
+            </param>
+        </param>
+    </params>
+</property>

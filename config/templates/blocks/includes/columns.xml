@@ -1,0 +1,38 @@
+<?xml version="1.0" ?>
+<property name="columns" type="single_select" xmlns="http://schemas.sulu.io/template/template" mandatory="true"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <meta>
+        <title lang="en">Columns</title>
+        <title lang="nl">Kolommen</title>
+    </meta>
+    <params>
+        <param name="default_value" value="2"/>
+        <param name="values" type="collection">
+            <param name="1">
+                <meta>
+                    <title lang="en">1 column</title>
+                    <title lang="nl">1 kolom</title>
+                </meta>
+            </param>
+            <param name="2">
+                <meta>
+                    <title lang="en">2 columns</title>
+                    <title lang="nl">2 kolommen</title>
+                </meta>
+            </param>
+            <param name="3">
+                <meta>
+                    <title lang="en">3 columns</title>
+                    <title lang="nl">3 kolommen</title>
+                </meta>
+            </param>
+            <param name="4">
+                <meta>
+                    <title lang="en">4 columns</title>
+                    <title lang="nl">4 kolommen</title>
+                </meta>
+            </param>
+        </param>
+    </params>
+</property>

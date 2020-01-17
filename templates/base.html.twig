@@ -39,40 +39,40 @@
     </nav>
     <header class="header">
         {% block header %}
-            <div class="d-flex justify-content-end">
-                <button class="nav-mobile-toggle hamburger hamburger--spin" type="button">
-                  <span class="hamburger-box">
-                    <span class="hamburger-inner"></span>
-                  </span>
-                </button>
-            </div>
-            <nav class="nav-main">
-                <ul>
-                    <li>
-                        <a href="{{ sulu_content_root_path() }}">Homepage</a>
-                    </li>
+            <div class="container">
 
-                    {% for item in sulu_navigation_root_tree('main') %}
+                <div class="d-flex justify-content-end">
+                    <button class="nav-mobile-toggle hamburger hamburger--spin" type="button">
+                      <span class="hamburger-box">
+                        <span class="hamburger-inner"></span>
+                      </span>
+                    </button>
+                </div>
+                <nav class="nav-main">
+                    <ul>
                         <li>
-                            <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
-                               title="{{ item.title }}">{{ item.title }}</a>
+                            <a href="{{ sulu_content_root_path() }}">Homepage</a>
                         </li>
-                    {% endfor %}
-                </ul>
-            </nav>
+
+                        {% for item in sulu_navigation_root_tree('main') %}
+                            <li>
+                                <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
+                                   title="{{ item.title }}">{{ item.title }}</a>
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </nav>
+            </div>
         {% endblock %}
     </header>
-
-    <form action="{{ path('sulu_search.website_search') }}" method="GET">
-        <input name="q" type="text" placeholder="Search"/>
-        <input type="submit" value="Go"/>
-    </form>
 
     {% block content %}{% endblock %}
 
     <footer class="footer">
         {% block footer %}
-            <p>Copyright {{ 'now'|date('Y') }} SULU</p>
+            <div class="container">
+                <p>Copyright {{ 'now'|date('Y') }} SULU</p>
+            </div>
         {% endblock %}
     </footer>
 

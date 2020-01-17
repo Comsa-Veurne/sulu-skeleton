@@ -1,0 +1,32 @@
+<?xml version="1.0" ?>
+<property name="size" type="single_select" xmlns="http://schemas.sulu.io/template/template" mandatory="true"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <meta>
+        <title lang="en">Size</title>
+        <title lang="nl">Grootte</title>
+    </meta>
+    <params>
+        <param name="default_value" value="normal"/>
+        <param name="values" type="collection">
+            <param name="small">
+                <meta>
+                    <title lang="en">Small</title>
+                    <title lang="nl">Klein</title>
+                </meta>
+            </param>
+            <param name="normal">
+                <meta>
+                    <title lang="en">Normal</title>
+                    <title lang="nl">Normaal</title>
+                </meta>
+            </param>
+            <param name="large">
+                <meta>
+                    <title lang="en">Large</title>
+                    <title lang="nl">Groot</title>
+                </meta>
+            </param>
+        </param>
+    </params>
+</property>

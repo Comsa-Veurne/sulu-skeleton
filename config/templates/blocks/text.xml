@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<type name="text" xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <meta>
+        <title lang="en">Text</title>
+        <title lang="nl">Tekst</title>
+    </meta>
+    <properties>
+        <property name="text" type="text_editor" mandatory="true">
+            <meta>
+                <title lang="en">Text</title>
+                <title lang="nl">Tekst</title>
+            </meta>
+        </property>
+        <xi:include href="includes/width.xml"/>
+    </properties>
+</type>
