@@ -17,7 +17,7 @@ use Sulu\Bundle\FormBundle\Dynamic\Types\DateType as DateTypeSulu;
 
 class DateType extends DateTypeSulu implements FormFieldTypeInterface
 {
-    public function build(FormBuilderInterface $builder, FormField $field, $locale, $options)
+    public function build(FormBuilderInterface $builder, FormField $field, string $locale, array $options): void
     {
         $type = DateTypeBase::class;
         $translation = $field->getTranslation($locale);
