@@ -1,0 +1,7 @@
+parameters:
+  google_api_key: '%env(GOOGLE_API_KEY)%'
+sulu_location:
+  geolocator: google
+  geolocators:
+    google:
+      api_key: '%google_api_key%'

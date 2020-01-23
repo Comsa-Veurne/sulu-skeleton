@@ -1,24 +1,19 @@
 {% if blocks|length %}
     <div class="row">
-        {% for block in blocks %}
+        {% for key, block in blocks %}
             <div class="{{ block.width|default('full')|width }}">
                 {% if block.type == 'button' %}
-                    {% set target = sulu_content_load(block.link) %}
-                    <div class="text-{{ block.position }}">
-                        <a href="{{ target.path }}" class="btn btn-{{ block.style }} btn-{{ block.size|size }}">{{ block.label }}</a>
-                    </div>
+                    {% include 'blocks/_button.html.twig' %}
                 {% elseif block.type == 'text' %}
-                    {{ block.text|raw }}
+                    {% include 'blocks/_text.html.twig' %}
                 {% elseif block.type == 'divider' %}
-                    <hr class="{{ block.margin|default('normal')|margin }}{% if not block.horizontal_rule %} no-rule{% endif %}">
+                    {% include 'blocks/_divider.html.twig' %}
                 {% elseif block.type == 'images' %}
-                    <div class="row">
-                        {% for image in block.images %}
-                            <div class="{{ block.columns|columns }}">
-                                <img src="{{ image.url }}" alt="{{ image.name }}">
-                            </div>
-                        {% endfor %}
-                    </div>
+                    {% include 'blocks/_images.html.twig' %}
+                {% elseif block.type == 'form' %}
+                    {% include 'blocks/_form.html.twig' %}
+                {% elseif block.type == 'location' %}
+                    {% include 'blocks/_location.html.twig' %}
                 {% endif %}
             </div>
         {% endfor %}

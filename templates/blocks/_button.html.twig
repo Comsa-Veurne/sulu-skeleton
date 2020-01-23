@@ -1,0 +1,4 @@
+{% set target = sulu_content_load(block.link) %}
+<div class="text-{{ block.position }}">
+    <a href="{{ target.path }}" class="btn btn-{{ block.style }} btn-{{ block.size|size }}">{{ block.label }}</a>
+</div>

@@ -1,0 +1,17 @@
+<div id="map" style="height: 300px; width: 100%;" class="map"></div>
+<script type="text/javascript">
+  function initMap() {
+    let position = new google.maps.LatLng({{ block.location.lat }}, {{ block.location.long }});
+    let map = new google.maps.Map(document.getElementById('map'), {
+      center: position,
+      zoom: 11,
+      styles: {% include 'blocks/includes/map-style.json.twig' %}
+    });
+
+    new google.maps.Marker({
+      position: position,
+      map: map
+    });
+  }
+</script>
+<script src="https://maps.googleapis.com/maps/api/js?key={{ google_api_key }}&callback=initMap" async defer></script>

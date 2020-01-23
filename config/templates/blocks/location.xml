@@ -1,0 +1,19 @@
+<?xml version="1.0" ?>
+<type name="location" xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <meta>
+        <title lang="en">Location</title>
+        <title lang="nl">Locatie</title>
+    </meta>
+    <properties>
+        <property name="location" type="location">
+            <meta>
+                <title lang="en">Location</title>
+                <title lang="nl">Locatie</title>
+            </meta>
+        </property>
+        <xi:include href="includes/width.xml"/>
+    </properties>
+</type>
