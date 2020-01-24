@@ -60,7 +60,10 @@ module.exports = (env, args) => {
         devServer: {
             contentBase: path.join(__dirname, '../../public/build/website'),
             compress: true,
-            port: PORT
+            port: PORT,
+            headers: {
+                'Access-Control-Allow-Origin': '*'
+            }
         }
     };
 
