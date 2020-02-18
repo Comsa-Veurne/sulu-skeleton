@@ -13,7 +13,7 @@ update_database:
 	$(DOCKER_APP_CONSOLE) doctrine:schema:update -f
 
 clear_cache: #This is the default action
-	$(DOCKER_APP_CONSOLE) cache:clear
+	$(DOCKER_APP_EXEC) rm -rf var/cache/*
 
 image_cache:
 	$(DOCKER_APP_CONSOLE) sulu:media:format:cache:clear
