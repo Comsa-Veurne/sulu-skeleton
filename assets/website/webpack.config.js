@@ -48,13 +48,21 @@ module.exports = (env, args) => {
                     }),
                 },
                 {
-                    test: /\.(png|jpg|gif)$/,
+                    test: /\.(png|jpg|gif|svg)$/,
                     loaders: [
                         {
                             loader: 'url-loader',
                             options: {
                                 limit: 0
                             }
+                        }
+                    ]
+                },
+                {
+                    test: /\.(eot|woff|woff2|ttf)$/,
+                    loaders: [
+                        {
+                            loader: 'url-loader'
                         }
                     ]
                 }
