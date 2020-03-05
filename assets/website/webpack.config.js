@@ -3,9 +3,12 @@ const ManifestPlugin = require('webpack-manifest-plugin');
 const StyleLintPlugin = require('stylelint-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const { CleanWebpackPlugin } = require('clean-webpack-plugin');
+const BrowserSyncPlugin = require('browser-sync-webpack-plugin');
+const ip = require('ip');
 const DEV_MODE = 'development';
 const PROD_MODE = 'production';
 const PORT = 8080;
+const HOST = 'http://' + ip.address();
 
 module.exports = (env, args) => {
     let mode = args.development ? DEV_MODE : PROD_MODE;
@@ -59,6 +62,8 @@ module.exports = (env, args) => {
         },
         devServer: {
             contentBase: path.join(__dirname, '../../public/build/website'),
+            hot: true,
+            hotOnly: true,
             compress: true,
             port: PORT,
             headers: {
@@ -72,6 +77,13 @@ module.exports = (env, args) => {
           new StyleLintPlugin({
               files: 'src/scss/**/*.scss'
           })
+        );
+        config.plugins.push(
+          new BrowserSyncPlugin({
+              host: 'localhost',
+              port: '3000',
+              proxy: 'localhost'
+          }, { reload: false })
         );
     } else {
         config.plugins.push(
