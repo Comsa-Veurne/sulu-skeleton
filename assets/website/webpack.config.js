@@ -8,6 +8,7 @@ const ip = require('ip');
 const DEV_MODE = 'development';
 const PROD_MODE = 'production';
 const PORT = 8080;
+const IP = ip.address();
 const HOST = 'http://' + ip.address();
 
 module.exports = (env, args) => {
@@ -26,7 +27,7 @@ module.exports = (env, args) => {
         output: {
             path: path.resolve(__dirname, '../../public/build/website'),
             filename: '[name]-[hash].js',
-            publicPath: mode === 'development' ? 'http://localhost:' + PORT + '/build/website/' : '/build/website/'
+            publicPath: mode === 'development' ? HOST + ':' + PORT + '/build/website/' : '/build/website/'
         },
         module: {
             rules: [
@@ -48,10 +49,10 @@ module.exports = (env, args) => {
                     }),
                 },
                 {
-                    test: /\.(png|jpg|gif|svg)$/,
+                    test: /\.(png|jpg|gif)$/,
                     loaders: [
                         {
-                            loader: 'url-loader',
+                            loader: 'url-loader?name=[name].[ext]',
                             options: {
                                 limit: 0
                             }
@@ -59,10 +60,14 @@ module.exports = (env, args) => {
                     ]
                 },
                 {
-                    test: /\.(eot|woff|woff2|ttf)$/,
+                    test: /\.(svg|eot|woff|woff2|ttf)$/,
                     loaders: [
                         {
-                            loader: 'url-loader'
+                            loader: 'url-loader',
+                            options: {
+                                limit: 0,
+                                name: '[name].[ext]'
+                            }
                         }
                     ]
                 }
@@ -70,10 +75,11 @@ module.exports = (env, args) => {
         },
         devServer: {
             contentBase: path.join(__dirname, '../../public/build/website'),
-            hot: true,
-            hotOnly: true,
             compress: true,
             port: PORT,
+            hot: true,
+            host: IP,
+            hotOnly: true,
             headers: {
                 'Access-Control-Allow-Origin': '*'
             }
@@ -92,7 +98,7 @@ module.exports = (env, args) => {
               port: '3000',
               proxy: 'localhost'
           }, { reload: false })
-        );
+        )
     } else {
         config.plugins.push(
           new ExtractTextPlugin({
