@@ -62,6 +62,12 @@
                         {% endfor %}
                     </ul>
                 </nav>
+
+                <ul class="language">
+                    {% for key, value in urls %}
+                        <li><a href="{{ sulu_content_path(value, null, key) }}">{{ key }}</a></li>
+                    {% endfor %}
+                </ul>
             </div>
         {% endblock %}
     </header>
