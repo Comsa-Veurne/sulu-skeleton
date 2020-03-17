@@ -24,7 +24,7 @@ docker_setup:
 
 setup: docker_setup install
 	printf "DATABASE_URL=mysql://root:sulu@db:3306/sulu\nAPP_ENV=dev" > .env.local
-	$(DOCKER_APP_CONSOLE) sulu:build dev
+	$(DOCKER_APP_CONSOLE) sulu:build dev -n
 	cd assets/website && npm install && cd ../..
 
 enter:
