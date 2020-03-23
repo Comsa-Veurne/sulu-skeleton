@@ -1,0 +1,11 @@
+@mixin set-font-sizes() {
+  @each $screen-size, $headings in $headings-font-sizes {
+    @include media-breakpoint-up(#{$screen-size}) {
+      @each $heading, $size in $headings {
+        #{$heading} {
+          @include rfs($size);
+        }
+      }
+    }
+  }
+}

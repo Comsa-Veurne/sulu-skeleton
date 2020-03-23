@@ -1,2 +1,16 @@
 $body-color: #000;
 $hamburger-layer-color: $body-color;
+$headings-font-sizes: (
+  xs: (
+    h1: 2rem,
+    h2: 1.8rem,
+    h3: 1.6rem,
+    h4: 1.4rem
+  ),
+  md: (
+    h1: 2.5rem,
+    h2: 2.2rem,
+    h3: 1.9rem,
+    h4: 1.6rem
+  )
+);
