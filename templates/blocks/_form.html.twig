@@ -4,6 +4,8 @@
         {% form_theme block.form '@SuluForm/themes/dynamic.html.twig' %}
         {{ form(block.form) }}
     {% else %}
-        {{ view.blocks[key].form.entity.successText|raw }}
+        <div class="alert alert-success">
+            {{ view.blocks[key].form.entity.successText|raw }}
+        </div>
     {% endif %}
 {% endif %}

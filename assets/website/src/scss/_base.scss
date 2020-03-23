@@ -7,3 +7,7 @@ img {
 }
 
 @include set-font-sizes;
+
+.alert p:last-child {
+  margin: 0;
+}
