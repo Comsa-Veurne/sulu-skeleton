@@ -1,11 +1,18 @@
+{% set view = view.blocks[key] %}
 {% if block.form %}
     {% if app.request.get('send') != 'true' %}
         {# FORM THEME #}
         {% form_theme block.form '@SuluForm/themes/dynamic.html.twig' %}
         {{ form(block.form) }}
     {% else %}
-        <div class="alert alert-success">
-            {{ view.blocks[key].form.entity.successText|raw }}
+        <div class="alert alert-success" id="{{ block.form.vars.id }}_success">
+            {{ view.form.entity.successText|raw }}
         </div>
+        <script>
+            const additionalLocationTag = '#{{ block.form.vars.id }}_success';
+            if (window.location.toString().indexOf(additionalLocationTag) === -1) {
+              window.location = window.location + additionalLocationTag;
+            }
+        </script>
     {% endif %}
 {% endif %}
