@@ -2,7 +2,7 @@
 {% if block.form %}
     {% if app.request.get('send') != 'true' %}
         {# FORM THEME #}
-        {% form_theme block.form '@SuluForm/themes/dynamic.html.twig' %}
+        {% form_theme block.form with ['@SuluForm/themes/dynamic.html.twig', '@ComsaSuluSpamFree/form_theme.html.twig'] %}
         {{ form(block.form) }}
     {% else %}
         <div class="alert alert-success" id="{{ block.form.vars.id }}_success">

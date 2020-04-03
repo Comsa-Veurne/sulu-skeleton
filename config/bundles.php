@@ -44,5 +44,5 @@ return [
     FOS\JsRoutingBundle\FOSJsRoutingBundle::class => ['all' => true, 'admin' => true],
     Symfony\Cmf\Bundle\RoutingBundle\CmfRoutingBundle::class => ['all' => true, 'website' => true],
     Sulu\Bundle\FormBundle\SuluFormBundle::class => ['all' => true],
-    EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle::class => ['all' => true],
+    Comsa\SuluSpamFreeBundle\ComsaSuluSpamFreeBundle::class => ['all' => true],
 ];
