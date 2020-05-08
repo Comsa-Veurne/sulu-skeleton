@@ -35,3 +35,24 @@ services:
 
     # add more service definitions when explicit configuration is needed
     # please note that last definitions always *replace* previous ones
+    sulu_form.configuration.form_configuration_factory:
+        class: App\Configuration\FormConfigurationFactory
+        arguments:
+            - '@sulu_form.media_collection_strategy.default'
+            - '%sulu_form.mail.template.notify%'
+            - '%sulu_form.mail.template.customer%'
+            - '%sulu_form.mail.template.notify_plain_text%'
+            - '%sulu_form.mail.template.customer_plain_text%'
+            - '@sulu_document_manager.document_manager'
+    sulu_form.list_builder.dynamic_list_builder:
+        class: App\Form\ListBuilder\DynamicListBuilder
+        arguments:
+            - '%sulu_form.dynamic_list_builder.delimiter%'
+            - '@router'
+            - '@sulu_document_manager.document_manager'
+        tags:
+            - { name: 'sulu_form.dynamic_list_builder', alias: 'simple' }
+    sulu_form.list_builder.dynamic_list_factory:
+        class: App\Form\ListBuilder\DynamicListFactory
+        arguments:
+            - '%sulu_form.dynamic_list_builder.default%'
