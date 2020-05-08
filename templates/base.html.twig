@@ -25,12 +25,13 @@
             <circle cx="25" cy="25" r="20" />
         </svg>
         <ul>
-            <li>
+            <li{% if sulu_navigation_is_active(app.request.requestUri, '/') %} class="active"{% endif %}>
                 <a href="{{ sulu_content_root_path() }}">Homepage</a>
             </li>
 
             {% for item in sulu_navigation_root_tree('main') %}
-                <li>
+                {% set isActive = sulu_navigation_is_active(app.request.requestUri, item.url) %}
+                <li{% if isActive %} class="active"{% endif %}>
                     <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
                        title="{{ item.title }}">{{ item.title }}</a>
                 </li>
@@ -49,12 +50,13 @@
                 </div>
                 <nav class="nav-main">
                     <ul>
-                        <li>
+                        <li{% if sulu_navigation_is_active(app.request.requestUri, '/') %} class="active"{% endif %}>
                             <a href="{{ sulu_content_root_path() }}">Homepage</a>
                         </li>
 
                         {% for item in sulu_navigation_root_tree('main') %}
-                            <li>
+                            {% set isActive = sulu_navigation_is_active(app.request.requestUri, item.url) %}
+                            <li{% if isActive %} class="active"{% endif %}>
                                 <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
                                    title="{{ item.title }}">{{ item.title }}</a>
                             </li>
