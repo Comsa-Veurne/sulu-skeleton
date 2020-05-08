@@ -1,0 +1,4 @@
+sulu_form:
+  honeypot:
+    field: "ohno"
+    strategy: no_save

@@ -107,3 +107,8 @@
         {%- endif -%}
     {%- endfor -%}
 {%- endblock attributes -%}
+{%- block honeypot_row -%}
+    <div class="d-none">
+        {{- block('form_row') -}}
+    </div>
+{%- endblock -%}
