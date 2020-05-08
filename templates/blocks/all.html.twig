@@ -14,6 +14,8 @@
                     {% include 'blocks/_form.html.twig' %}
                 {% elseif block.type == 'location' %}
                     {% include 'blocks/_location.html.twig' %}
+                {% elseif block.type == 'media' %}
+                    {% include 'blocks/_media.html.twig' %}
                 {% endif %}
             </div>
         {% endfor %}

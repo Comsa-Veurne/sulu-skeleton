@@ -1,0 +1,77 @@
+<?xml version="1.0" ?>
+<type name="media" xmlns="http://schemas.sulu.io/template/template"
+      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+      xmlns:xi="http://www.w3.org/2001/XInclude"
+      xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+    <meta>
+        <title lang="en">Media</title>
+        <title lang="nl">Media</title>
+    </meta>
+    <properties>
+        <property name="label" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Label</title>
+                <title lang="nl">Label</title>
+            </meta>
+        </property>
+        <property name="link" type="single_media_selection" mandatory="true">
+            <meta>
+                <title lang="en">File</title>
+                <title lang="nl">Bestand</title>
+            </meta>
+        </property>
+        <property name="style" type="single_select" colspan="6" mandatory="true">
+            <meta>
+                <title lang="en">Style</title>
+                <title lang="nl">Stijl</title>
+            </meta>
+            <params>
+                <param name="default_value" value="primary"/>
+                <param name="values" type="collection">
+                    <param name="primary">
+                        <meta>
+                            <title lang="en">Primary</title>
+                            <title lang="nl">Primair</title>
+                        </meta>
+                    </param>
+                    <param name="secondary">
+                        <meta>
+                            <title lang="en">Secondary</title>
+                            <title lang="nl">Secundair</title>
+                        </meta>
+                    </param>
+                </param>
+            </params>
+        </property>
+        <property name="position" type="single_select" colspan="6" mandatory="true">
+            <meta>
+                <title lang="en">Position</title>
+                <title lang="nl">Positie</title>
+            </meta>
+            <params>
+                <param name="default_value" value="left"/>
+                <param name="values" type="collection">
+                    <param name="left">
+                        <meta>
+                            <title lang="en">Left</title>
+                            <title lang="nl">Links</title>
+                        </meta>
+                    </param>
+                    <param name="center">
+                        <meta>
+                            <title lang="en">Center</title>
+                            <title lang="nl">Midden</title>
+                        </meta>
+                    </param>
+                    <param name="right">
+                        <meta>
+                            <title lang="en">Right</title>
+                            <title lang="nl">Rechts</title>
+                        </meta>
+                    </param>
+                </param>
+            </params>
+        </property>
+        <xi:include href="includes/size.xml"/>
+    </properties>
+</type>

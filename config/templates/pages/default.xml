@@ -46,6 +46,7 @@
                 <xi:include href="../blocks/images.xml"/>
                 <xi:include href="../blocks/form.xml"/>
                 <xi:include href="../blocks/location.xml"/>
+                <xi:include href="../blocks/media.xml"/>
             </types>
         </block>
     </properties>

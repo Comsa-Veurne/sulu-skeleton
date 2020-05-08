@@ -1,6 +1,7 @@
 <?xml version="1.0" ?>
 <template xmlns="http://schemas.sulu.io/template/template"
           xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xmlns:xi="http://www.w3.org/2001/XInclude"
           xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
 
     <key>homepage</key>
@@ -37,11 +38,16 @@
             <tag name="sulu.rlp"/>
         </property>
 
-        <property name="article" type="text_editor">
-            <meta>
-                <title lang="en">Article</title>
-                <title lang="de">Artikel</title>
-            </meta>
-        </property>
+        <block name="blocks" default-type="text">
+            <types>
+                <xi:include href="../blocks/text.xml"/>
+                <xi:include href="../blocks/divider.xml"/>
+                <xi:include href="../blocks/button.xml"/>
+                <xi:include href="../blocks/images.xml"/>
+                <xi:include href="../blocks/form.xml"/>
+                <xi:include href="../blocks/location.xml"/>
+                <xi:include href="../blocks/media.xml"/>
+            </types>
+        </block>
     </properties>
 </template>
