@@ -3,3 +3,10 @@ sulu_form_api:
   type: rest
   resource: "@SuluFormBundle/Resources/config/routing_api.yml"
   prefix: /admin/api
+app_settings:
+  type: rest
+  resource: App\Controller\Admin\SettingController
+  prefix: /admin/api
+  name_prefix: app.
+  options:
+    expose: true

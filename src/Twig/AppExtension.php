@@ -4,11 +4,21 @@
 namespace App\Twig;
 
 
+use App\Entity\Setting;
+use Doctrine\ORM\EntityManagerInterface;
 use Twig\Extension\AbstractExtension;
+use Twig\Extension\GlobalsInterface;
 use Twig\TwigFilter;
 
-class AppExtension extends AbstractExtension
+class AppExtension extends AbstractExtension implements GlobalsInterface
 {
+    private $em;
+
+    public function __construct(EntityManagerInterface $em)
+    {
+        $this->em = $em;
+    }
+
     public function getFilters()
     {
         return [
@@ -73,5 +83,19 @@ class AppExtension extends AbstractExtension
             default:
                 return 'col-md-12';
         }
+    }
+
+    public function getGlobals()
+    {
+        $data = [];
+
+        //-- Fetch all settings
+        $repository = $this->em->getRepository(Setting::class);
+        $settings = $repository->findAll();
+
+        foreach ($settings as $setting) {
+            $data[$setting->getKey()] = $setting->getValue();
+        }
+        return $data;
     }
 }
