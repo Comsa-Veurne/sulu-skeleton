@@ -18,6 +18,10 @@ services:
       MYSQL_ROOT_PASSWORD: sulu
     volumes:
       - my-db:/var/lib/mysql
+  mail:
+    image: tophfr/mailcatcher
+    ports:
+      - "1080:80"
 volumes:
   my-db:
   vendor:
