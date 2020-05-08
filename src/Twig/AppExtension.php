@@ -16,7 +16,15 @@ class AppExtension extends AbstractExtension
             new TwigFilter('width', [$this, 'formatWidth']),
             new TwigFilter('size', [$this, 'formatSize']),
             new TwigFilter('columns', [$this, 'formatColumns']),
+            new TwigFilter('youtubeId', [$this, 'getYoutubeId']),
         ];
+    }
+
+    public function getYoutubeId($url)
+    {
+        $urlParts = parse_url($url);
+        parse_str($urlParts['query'], $params);
+        return isset($params['v']) ? $params['v'] : false;
     }
 
     public function formatMargin($margin)

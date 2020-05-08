@@ -16,6 +16,8 @@
                     {% include 'blocks/_location.html.twig' %}
                 {% elseif block.type == 'media' %}
                     {% include 'blocks/_media.html.twig' %}
+                {% elseif block.type == 'video' %}
+                    {% include 'blocks/_video.html.twig' %}
                 {% endif %}
             </div>
         {% endfor %}
