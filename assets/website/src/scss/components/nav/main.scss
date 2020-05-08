@@ -1,0 +1,89 @@
+.nav-mobile-toggle {
+  position: relative;
+  z-index: 1;
+
+  .hamburger-box {
+    pointer-events: none;
+  }
+
+  &.is-active {
+    .hamburger-inner {
+      background-color: $white;
+
+      &::before,
+      &::after {
+        background-color: $white;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-down(md) {
+  .nav-main {
+    background: $primary;
+    font-size: 1.4rem;
+    height: 100vh;
+    left: 0;
+    opacity: 0;
+    pointer-events: none;
+    position: fixed;
+    text-transform: uppercase;
+    top: 0;
+    width: 100%;
+
+    header {
+      align-items: center;
+      display: flex;
+      height: 5rem;
+      justify-content: flex-end;
+      padding: 1rem;
+    }
+
+    ul {
+      @include list-unstyled;
+      display: flex;
+      flex-direction: column;
+      height: calc(100vh - 10rem);
+      justify-content: center;
+    }
+
+    a {
+      color: $white;
+      display: block;
+      opacity: 0;
+      padding: 0.5rem;
+      text-align: center;
+      transform: translateY(-25px);
+      transition: 300ms ease-in-out;
+      width: 100%;
+    }
+
+    &.is-open {
+      opacity: 1;
+      pointer-events: all;
+
+      .nav-mobile-circle {
+        transform: translate(100%, -100%) scale(40);
+      }
+
+      a {
+        opacity: 1;
+        transform: none;
+        transition: 300ms ease-in-out 350ms;
+      }
+
+      .hamburger-inner,
+      .hamburger-inner::before,
+      .hamburger-inner::after {
+        background-color: #fff;
+      }
+    }
+  }
+}
+
+@include media-breakpoint-up(lg) {
+  .nav-mobile-toggle {
+    display: none;
+  }
+}
+

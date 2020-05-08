@@ -20,24 +20,6 @@
     {% endblock %}
 </head>
 <body>
-    <nav class="nav-mobile">
-        <svg class="nav-mobile-circle" height="50" width="50">
-            <circle cx="25" cy="25" r="20" />
-        </svg>
-        <ul>
-            <li{% if sulu_navigation_is_active(app.request.requestUri, '/') %} class="active"{% endif %}>
-                <a href="{{ sulu_content_root_path() }}">Homepage</a>
-            </li>
-
-            {% for item in sulu_navigation_root_tree('main') %}
-                {% set isActive = sulu_navigation_is_active(app.request.requestUri, item.url) %}
-                <li{% if isActive %} class="active"{% endif %}>
-                    <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
-                       title="{{ item.title }}">{{ item.title }}</a>
-                </li>
-            {% endfor %}
-        </ul>
-    </nav>
     <header class="header">
         {% block header %}
             <div class="container">
