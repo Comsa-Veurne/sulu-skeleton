@@ -1,0 +1,9 @@
+app:
+  setting:
+    settings: 'Settings'
+    general: 'General'
+    key: 'Key'
+    label: 'Label'
+    value: 'Value'
+    add: 'Add setting'
+    edit: 'Edit setting'

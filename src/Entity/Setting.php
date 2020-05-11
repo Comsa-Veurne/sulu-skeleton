@@ -4,10 +4,12 @@
 namespace App\Entity;
 
 
+use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
+use JMS\Serializer\Annotation as Serializer;
 
 /**
- * @ORM\Entity
+ * @ORM\Entity(repositoryClass="App\Repository\SettingRepository")
  * @ORM\Table(name="setting")
  */
 class Setting
@@ -22,6 +24,11 @@ class Setting
     private $id;
 
     /**
+     * @var string $locale
+     */
+    private $locale;
+
+    /**
      * @ORM\Column(type="string", name="setting_key")
      */
     private $key;
@@ -32,13 +39,28 @@ class Setting
     private $label;
 
     /**
-     * @ORM\Column(type="string")
+     * @ORM\OneToMany(targetEntity="App\Entity\SettingTranslation", mappedBy="setting", cascade={"all"})
      */
-    private $value;
+    private $translations;
+
+    public function __construct()
+    {
+        $this->translations = new ArrayCollection();
+    }
 
     public function getId(): int
     {
         return $this->id;
+    }
+
+    public function getLocale(): string
+    {
+        return $this->locale;
+    }
+
+    public function setLocale(string $locale): void
+    {
+        $this->locale = $locale;
     }
 
     public function getKey(): string
@@ -61,13 +83,58 @@ class Setting
         $this->label = $label;
     }
 
-    public function getValue(): ?string
+    public function getTranslations(): ArrayCollection
     {
-        return $this->value;
+        return $this->translations;
     }
 
-    public function setValue(?string $value): void
+    public function getTranslation(string $locale, bool $create = false, bool $fallback = false): ?SettingTranslation
     {
-        $this->value = $value;
+        foreach ($this->translations as $translation) {
+            if ($translation->getLocale() == $locale) {
+                return $translation;
+            }
+        }
+
+        if ($create) {
+            $translation = new SettingTranslation();
+            $translation->setLocale($locale);
+
+            return $translation;
+        }
+
+        if ($fallback) {
+            return $this->getTranslation('nl');
+        }
+
+        return null;
+    }
+
+    /**
+     * @Serializer\VirtualProperty(name="value")
+     */
+    public function getValue(): ?string
+    {
+        return $this->getTranslation($this->locale, false, true)->getValue();
+    }
+
+    public function setValue(?string $value): Setting
+    {
+        $translation = $this->getTranslation($this->locale);
+        if (!$translation) {
+            $translation = $this->createTranslation($this->locale);
+        }
+
+        $translation->setValue($value);
+
+        return $this;
+    }
+
+    protected function createTranslation(string $locale): SettingTranslation
+    {
+        $translation = new SettingTranslation($this, $locale);
+        $this->translations->set($locale, $translation);
+
+        return $translation;
     }
 }
