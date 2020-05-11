@@ -7,6 +7,7 @@ namespace App\Entity;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\ORM\Mapping as ORM;
 use JMS\Serializer\Annotation as Serializer;
+use Symfony\Component\Validator\Constraints as Assert;
 
 /**
  * @ORM\Entity(repositoryClass="App\Repository\SettingRepository")
@@ -29,7 +30,7 @@ class Setting
     private $locale;
 
     /**
-     * @ORM\Column(type="string", name="setting_key")
+     * @ORM\Column(type="string", name="setting_key", unique=true)
      */
     private $key;
 
