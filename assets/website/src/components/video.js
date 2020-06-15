@@ -27,7 +27,7 @@ function createIframe(e) {
   let id = thumbnail.dataset.id;
 
   //-- Is the API loaded already?
-  let youtubeApiSrc = "https://www.youtube.com/player_api";
+  let youtubeApiSrc = 'https://www.youtube.com/player_api';
   let youtubeApiScript = document.querySelector('script[src="' + youtubeApiSrc + '"]');
   if (!youtubeApiScript) {
     let tag = document.createElement('script');
@@ -37,6 +37,7 @@ function createIframe(e) {
   }
 
   window.onYouTubeIframeAPIReady = () => {
+    let YT;
     new YT.Player(thumbnail, {
       playerVars: {
         autoplay: 1,
@@ -49,6 +50,6 @@ function createIframe(e) {
         playlist: id
       },
       videoId: id
-    })
-  }
+    });
+  };
 }
