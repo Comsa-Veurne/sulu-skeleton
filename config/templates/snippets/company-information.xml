@@ -1,0 +1,117 @@
+<?xml version="1.0" ?>
+<template xmlns="http://schemas.sulu.io/template/template"
+          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+          xsi:schemaLocation="http://schemas.sulu.io/template/template http://schemas.sulu.io/template/template-1.0.xsd">
+
+    <key>company-information</key>
+
+    <meta>
+        <title lang="en">Company Information</title>
+        <title lang="nl">Bedrijfsinformatie</title>
+    </meta>
+
+    <properties>
+        <property name="title" type="text_line" mandatory="true">
+            <meta>
+                <title lang="en">Title</title>
+                <title lang="nl">Titel</title>
+            </meta>
+
+            <tag name="sulu.node.name"/>
+        </property>
+
+        <section name="contact_information">
+            <meta>
+                <title lang="en">Contact information</title>
+            </meta>
+            <properties>
+
+                <property name="location" type="location">
+                    <meta>
+                        <title lang="en">Location</title>
+                        <title lang="nl">Adres</title>
+                    </meta>
+                </property>
+
+                <property name="email" type="email" colspan="6">
+                    <meta>
+                        <title lang="en">E-Mail</title>
+                    </meta>
+                </property>
+
+                <property name="phone" type="phone" colspan="6">
+                    <meta>
+                        <title lang="en">Phone number</title>
+                    </meta>
+                </property>
+
+                <property name="btw_nummer" type="text_line" colspan="6">
+                    <meta>
+                        <title lang="en">BTW nummer</title>
+                    </meta>
+                </property>
+
+            </properties>
+        </section>
+
+        <section name="logos">
+            <meta>
+                <title lang="en">Logo's</title>
+            </meta>
+            <properties>
+
+                <property name="logo_header" type="single_media_selection" colspan="6">
+                    <meta>
+                        <title lang="en">Logo header</title>
+                    </meta>
+                </property>
+
+                <property name="logo_footer" type="single_media_selection" colspan="6">
+                    <meta>
+                        <title lang="en">Logo footer</title>
+                    </meta>
+                </property>
+
+            </properties>
+        </section>
+
+        <section name="social_media">
+            <meta>
+                <title lang="en">Social media</title>
+            </meta>
+
+            <properties>
+                <property name="facebook" type="url" colspan="4">
+                    <meta>
+                        <title lang="en">Facebook</title>
+                    </meta>
+                </property>
+
+                <property name="instagram" type="url" colspan="4">
+                    <meta>
+                        <title lang="en">Instagram</title>
+                    </meta>
+                </property>
+
+                <property name="linked_in" type="url" colspan="4">
+                    <meta>
+                        <title lang="en">Linked-in</title>
+                    </meta>
+                </property>
+
+                <property name="twitter" type="url" colspan="4">
+                    <meta>
+                        <title lang="en">Twitter</title>
+                    </meta>
+                </property>
+
+                <property name="youtube" type="url" colspan="4">
+                    <meta>
+                        <title lang="en">Youtube</title>
+                    </meta>
+                </property>
+            </properties>
+        </section>
+
+    </properties>
+</template>

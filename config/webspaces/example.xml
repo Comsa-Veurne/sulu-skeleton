@@ -31,6 +31,18 @@
                     <title lang="de">Hauptnavigation</title>
                 </meta>
             </context>
+            <context key="footer">
+                <meta>
+                    <title lang="en">Footer Navigation</title>
+                    <title lang="nl">Footer Navigatie</title>
+                </meta>
+            </context>
+            <context key="top">
+                <meta>
+                    <title lang="en">Top Navigation</title>
+                    <title lang="nl">Top Navigatie</title>
+                </meta>
+            </context>
         </contexts>
     </navigation>
 

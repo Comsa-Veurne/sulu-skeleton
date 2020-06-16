@@ -1,0 +1,71 @@
+<section class="row">
+    <div class="col-12 col-lg-5">
+        {% if companyInfo.logo_footer %}
+            <a href="{{ sulu_content_root_path() }}" class="brand"><img src="{{ companyInfo.logo_footer.url }}"
+                                                                        alt="Logo-{{ companyInfo.title }}"></a>
+        {% endif %}
+    </div>
+
+    <div class="col-12 col-lg-2">
+        <strong>Contact</strong><br>
+        {% if companyInfo.location %}
+            {{ companyInfo.location.street }} {{ companyInfo.location.number }}<br>
+            {{ companyInfo.location.code }} {{ companyInfo.location.town }}<br>
+        {% endif %}
+        {% if companyInfo.phone %}
+            <a href="tel:{{ companyInfo.phone }}">{{ companyInfo.phone }}</a>{% endif %}
+        {% if companyInfo.email %}
+            <a href="mailto:{{ companyInfo.email }}">{{ companyInfo.email }}</a>{% endif %}
+    </div>
+
+    <div class="footernav col-12 col-lg-3">
+        {% if sulu_navigation_root_tree('footer') %}
+            <ul>
+                {% for item in sulu_navigation_root_tree('footer') %}
+                    {% set isActive = sulu_navigation_is_active(app.request.requestUri, item.url) %}
+                    <li{% if isActive %} class="active"{% endif %}>
+                        <a href="{{ sulu_content_path(item.url, item.webspaceKey) }}"
+                           title="{{ item.title }}">{{ item.title }}</a>
+                    </li>
+                {% endfor %}
+            </ul>
+        {% endif %}
+    </div>
+
+    <div class="col-12 col-lg-2">
+        {% if
+            companyInfo.facebook or
+            companyInfo.instagram or
+            companyInfo.linked_in or
+            companyInfo.twitter or
+            companyInfo.youtube %}
+            <ul class="social-footer">
+                {% if companyInfo.facebook %}
+                    <li>
+                        <a href="{{ companyInfo.facebook }}"><i class="fab fa-facebook"></i></a>
+                    </li>
+                {% endif %}
+                {% if companyInfo.instagram %}
+                    <li>
+                        <a href="{{ companyInfo.instagram }}"><i class="fab fa-instagram"></i></a>
+                    </li>
+                {% endif %}
+                {% if companyInfo.linked_in %}
+                    <li>
+                        <a href="{{ companyInfo.linked_in }}"><i class="fab fa-linkedin-in"></i></a>
+                    </li>
+                {% endif %}
+                {% if companyInfo.twitter %}
+                    <li>
+                        <a href="{{ companyInfo.twitter }}"><i class="fab fa-twitter"></i></a>
+                    </li>
+                {% endif %}
+                {% if companyInfo.youtube %}
+                    <li>
+                        <a href="{{ companyInfo.youtube }}"><i class="fab fa-youtube"></i></a>
+                    </li>
+                {% endif %}
+            </ul>
+        {% endif %}
+    </div>
+</section>
