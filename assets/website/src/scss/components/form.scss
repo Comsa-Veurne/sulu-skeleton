@@ -1,4 +1,43 @@
 form {
+  >div {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+  }
+
+  .form-width-half {
+    width: 48%;
+  }
+
+  .form-width-full {
+    width: 100%;
+  }
+
+  .form-width-one-quarter {
+    width: 23%;
+  }
+
+  .form-width-three-quarters {
+    width: 73%;
+  }
+
+  .form-width-one-third {
+    width: 31.33%;
+  }
+
+  .form-width-two-thirds {
+    width: 64.66%;
+  }
+
+  .form-width-one-sixth {
+    width: calc((100% / 6) - 2%);
+  }
+
+  .form-width-five-sixths {
+
+    width: calc(((100% / 6) * 5) - 2%);
+  }
+
   label p {
     margin: 0;
   }
