@@ -1,7 +1,9 @@
-<div class="row">
+<div class="row images">
     {% for image in block.images %}
         <div class="{{ block.columns|columns }}">
-            <img src="{{ image.url }}" alt="{{ image.name }}">
+            <a href="{{ image.url }}" class="glightbox" data-gallery="gallery" data-type="image">
+                <img src="{{ image.url }}" alt="{{ image.name }}">
+            </a>
         </div>
     {% endfor %}
 </div>
