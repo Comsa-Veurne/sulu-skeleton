@@ -1,25 +1,31 @@
 <section class="row">
-    <div class="col-12 col-lg-5">
-        {% if companyInfo.logo_footer %}
+    {% if companyInfo.logo_footer %}
+        <div class="col-12">
+
             <a href="{{ sulu_content_root_path() }}" class="brand"><img src="{{ companyInfo.logo_footer.url }}"
                                                                         alt="Logo-{{ companyInfo.title }}"></a>
-        {% endif %}
-    </div>
+        </div>
+    {% endif %}
 
-    <div class="col-12 col-lg-2">
-        <strong>Contact</strong><br>
-        {% if companyInfo.location %}
-            {{ companyInfo.location.street }} {{ companyInfo.location.number }}<br>
-            {{ companyInfo.location.code }} {{ companyInfo.location.town }}<br>
-        {% endif %}
-        {% if companyInfo.phone %}
-            <a href="tel:{{ companyInfo.phone }}">{{ companyInfo.phone }}</a>{% endif %}
-        {% if companyInfo.email %}
-            <a href="mailto:{{ companyInfo.email }}">{{ companyInfo.email }}</a>{% endif %}
-    </div>
+    {% if companyInfo.location or
+        companyInfo.phone or
+        companyInfo.email %}
+        <div class="col-12">
+            <strong>Contact</strong><br>
+            {% if companyInfo.location %}
+                {{ companyInfo.location.street }} {{ companyInfo.location.number }}<br>
+                {{ companyInfo.location.code }} {{ companyInfo.location.town }}<br>
+            {% endif %}
+            {% if companyInfo.phone %}
+                <a href="tel:{{ companyInfo.phone }}">{{ companyInfo.phone }}</a>{% endif %}
+            {% if companyInfo.email %}
+                <a href="mailto:{{ companyInfo.email }}">{{ companyInfo.email }}</a>{% endif %}
+        </div>
+    {% endif %}
 
-    <div class="footernav col-12 col-lg-3">
-        {% if sulu_navigation_root_tree('footer') %}
+
+    {% if sulu_navigation_root_tree('footer') %}
+        <div class="footernav col-12">
             <ul>
                 {% for item in sulu_navigation_root_tree('footer') %}
                     {% set isActive = sulu_navigation_is_active(app.request.requestUri, item.url) %}
@@ -29,16 +35,17 @@
                     </li>
                 {% endfor %}
             </ul>
-        {% endif %}
-    </div>
+        </div>
+    {% endif %}
 
-    <div class="col-12 col-lg-2">
-        {% if
-            companyInfo.facebook or
-            companyInfo.instagram or
-            companyInfo.linked_in or
-            companyInfo.twitter or
-            companyInfo.youtube %}
+
+    {% if
+        companyInfo.facebook or
+        companyInfo.instagram or
+        companyInfo.linked_in or
+        companyInfo.twitter or
+        companyInfo.youtube %}
+        <div class="col-12">
             <ul class="social-footer">
                 {% if companyInfo.facebook %}
                     <li>
@@ -66,6 +73,6 @@
                     </li>
                 {% endif %}
             </ul>
-        {% endif %}
-    </div>
+        </div>
+    {% endif %}
 </section>
