@@ -10,6 +10,9 @@ stylelint:
     - cd assets/website
   script:
     - npm run stylelint
+  only:
+    changes:
+      - assets/website/**/*.scss
 
 eslint:
   stage: style
@@ -17,3 +20,6 @@ eslint:
     - cd assets/website
   script:
     - npm run eslint
+  only:
+    changes:
+      - assets/website/**/*.js
