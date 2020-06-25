@@ -7,6 +7,8 @@ services:
     volumes:
       - .:/var/www/html:cached
       - vendor:/var/www/html/vendor
+      - cache:/var/www/html/var/cache
+      - log:/var/www/html/var/log
     depends_on:
       - db
   db:
@@ -25,3 +27,5 @@ services:
 volumes:
   my-db:
   vendor:
+  cache:
+  log:
