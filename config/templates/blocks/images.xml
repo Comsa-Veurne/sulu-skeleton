@@ -14,6 +14,48 @@
                 <title lang="nl">Afbeeldingen</title>
             </meta>
         </property>
+
+        <property name="image_format" type="single_select" mandatory="true">
+            <meta>
+                <title lang="en">Image format</title>
+                <title lang="nl">Formaat</title>
+            </meta>
+
+            <params>
+                <param name="default_value" value="default"/>
+
+                <param name="values" type="collection">
+                    <param name="default">
+                        <meta>
+                            <title lang="en">Default</title>
+                            <title lang="nl">Standaard</title>
+                        </meta>
+                    </param>
+
+                    <param name="portrait">
+                        <meta>
+                            <title lang="en">Portrait</title>
+                            <title lang="nl">Staand</title>
+                        </meta>
+                    </param>
+
+                    <param name="landscape">
+                        <meta>
+                            <title lang="en">Landscape</title>
+                            <title lang="nl">Liggend</title>
+                        </meta>
+                    </param>
+
+                    <param name="square">
+                        <meta>
+                            <title lang="en">Square</title>
+                            <title lang="nl">Vierkant</title>
+                        </meta>
+                    </param>
+                </param>
+            </params>
+        </property>
+
         <xi:include href="includes/width.xml"/>
         <xi:include href="includes/columns.xml"/>
     </properties>

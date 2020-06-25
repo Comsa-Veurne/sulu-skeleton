@@ -5,16 +5,45 @@
 
     <!-- See: http://docs.sulu.io/en/latest/book/image-formats.html how to define image-formats -->
 
-    <!--
-    <format key="300x">
+    <format key="large">
         <meta>
-            <title lang="en">Example Image</title>
-            <title lang="de">Beispielbild</title>
+            <title lang="en">Large</title>
+            <title lang="nl">Groot</title>
         </meta>
-
-        <scale x="300"/>
+        <scale x="1920" y="1080" mode="inset"/>
     </format>
-    -->
+
+    <format key="default">
+        <meta>
+            <title lang="en">Default</title>
+            <title lang="nl">Standaard</title>
+        </meta>
+        <scale x="800" y="800" mode="inset"/>
+    </format>
+
+    <format key="landscape">
+        <meta>
+            <title lang="en">Landscape</title>
+            <title lang="nl">Liggend</title>
+        </meta>
+        <scale x="600" y="450"/>
+    </format>
+
+    <format key="portrait">
+        <meta>
+            <title lang="en">Portrait</title>
+            <title lang="nl">Staand</title>
+        </meta>
+        <scale x="450" y="600"/>
+    </format>
+
+    <format key="square">
+        <meta>
+            <title lang="en">Square</title>
+            <title lang="nl">Vierkant</title>
+        </meta>
+        <scale x="450" y="450"/>
+    </format>
 
     <!--
     Render an image from the media_selection in a specific format the following way:

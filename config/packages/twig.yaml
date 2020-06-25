@@ -4,4 +4,4 @@ twig:
     strict_variables: '%kernel.debug%'
     globals:
         google_api_key: '%google_api_key%'
-        company_uuid: ''
+        company_uuid: '6f4e4280-187e-44bf-b08b-ddc645b48b88'
