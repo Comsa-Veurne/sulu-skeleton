@@ -1,7 +1,8 @@
 {% extends "base.html.twig" %}
 
 {% block content %}
-    <h1>Error {{ status_code }}: {{ status_text }}</h1>
-
-    <p>{{ exception.message }}</p>
+    <div class="container">
+        <h1>Er is iets misgegaan...</h1>
+        <p>Er is iets foutgelopen met de website, gelieve terug te keren naar de homepagina via <a href="{{ sulu_content_root_path() }}">deze link</a></p>
+    </div>
 {% endblock %}
